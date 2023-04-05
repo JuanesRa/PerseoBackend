@@ -17,8 +17,8 @@ def hotelperseo():
             case '0':
                 break
             case '1':
-                while True:
-                    print('Consultar:\n 1-Habitaciones\n 2-Tipos de Habitaciones ')
+                while True: 
+                    print('Consultar:\n 1-Habitación\n 2-Tipo de Habitación ')
                     ctrl=str(input('Que quieres consultar: '))
                     print()
                     match ctrl:
@@ -30,5 +30,49 @@ def hotelperseo():
                         case '2':
                             th.selecTH()
                             print()
-    
+        
+            case '2':
+                while True:
+                    print('Insertar:\n 1-Habitación\n 2-Tipo de Habitación ')
+                    ctrl=str(input('Que quieres insertar: '))
+                    print()
+                    match ctrl:
+                        case '0':
+                            break
+                        case '1':
+                            h.inserthab() 
+                            print()
+                        case '2':
+                            th.insertTH() 
+                            print()
+            case '3':
+                while True:
+                    print('Eliminar:\n 1-Habitación\n 2-Tipo de Habitación ')
+                    ctrl=str(input('Que quieres eliminar: '))
+                    print()
+                    match ctrl:
+                        case '0':
+                            break
+                        case '1':
+                            h.deletehab() 
+                            print()
+                        case '2':
+                            th.deleteTH() 
+                            print()
+            case '4':
+                while True:
+                    print('Actualizar:\n 1-Habitación\n 2-Tipo de Habitación ')
+                    ctrl=str(input('Que quieres actualizar: '))
+                    print()
+                    match ctrl:
+                        case '0':
+                            break
+                        case '1':
+                            h.updatehab() 
+                            print()
+                        case '2':
+                            th.updateTH()
+                            print()
+                    
+                    
 hotelperseo()
