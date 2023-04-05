@@ -4,18 +4,17 @@ curshab=conex.cursor()
 
 
 def selecHab():
-    sentencia=f"SELECT H.habi_idHabitacion, H.habi_descripción, TH.tiha_tipo, TH.tiha_precio, TE.esha_estado FROM tb_habitacion H INNER JOIN tb_tipoHabitacion TH ON H.habi_idTipoHab = TH.tiha_idTipoHab INNER JOIN tb_estadoHabitacion TE ON H.habi_idEstadoHab = TE.esha_idEstadoHab"# WHERE {campo}{operador}'{dato}'"
+    sentencia=f"SELECT H.habi_idHabitacion, H.habi_descripción, TH.tiha_tipo, TH.tiha_precio, TE.esha_estado FROM tb_habitacion H INNER JOIN tb_tipoHabitacion TH ON H.habi_idTipoHab = TH.tiha_idTipoHab INNER JOIN tb_estadoHabitacion TE ON H.habi_idEstadoHab = TE.esha_idEstadoHab"
     lista=curshab.execute(sentencia)
     ite=lista.fetchall()
     print('Hay', len(ite), 'Habitaciones en el hotel y son: \n')
     for i in ite:
-        print(i[0] ,'', end='')
-        print(i[1] ,'', end='')
-        print(i[2] ,'', end='')
-        print(i[3] ,'', end='')
-        print(i[4])
-        print('_'*90)
-
+         print(i[0] ,'', end='')
+         print(i[1] ,'', end='')
+         print(i[2] ,'', end='')
+         print(i[3] ,'', end='')
+         print(i[4])
+         print('_'*90)
 
 def updatehab():
     try:
@@ -70,4 +69,4 @@ def inserthab():
 #inserthab() 
 #deletehab()
 #updatehab()
-#seleccion() 
+#selecHab() 
