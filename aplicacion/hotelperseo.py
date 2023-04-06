@@ -92,6 +92,23 @@ def hotelperseo():
                                         print()
                                     case _ :
                                         print('Esta opción no existe')
+                        case '5':
+                             while True:
+                                print('Reporte:\n 1-Habitación\n 2-Tipo de Habitación ')
+                                ctrl=str(input('Que quieres actualizar: '))
+                                print()
+                                match ctrl:
+                                    case '0':
+                                        break
+                                    case '1':
+                                        h.reporteHabit() 
+                                        print()
+                                    case '2':
+                                        th.reporteTipoHab()
+                                        print()
+                                    case _ :
+                                        print('Esta opción no existe')
+                            
                         
                         case _ :
                                         print('Esta opción no existe')

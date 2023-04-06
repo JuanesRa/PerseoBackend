@@ -21,7 +21,7 @@ class habitacion:
     def setTipoHab(self,tip):
         self.tipoHab=tip
     #? getters/setters
-    def getEstado(self):
-        return self.estado
+    def getEstadoHab(self):
+        return self.estadoHab
     def setEstado(self, estado):
         self.estadoHab=estado    

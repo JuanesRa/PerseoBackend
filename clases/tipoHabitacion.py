@@ -1,4 +1,4 @@
-class habitacion:
+class tipoHab:
     def __init__(self,idth,tipo,precio):
         self.idTipoHab=idth 
         self.tipoHab = tipo
