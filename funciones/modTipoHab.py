@@ -2,7 +2,6 @@ import sqlite3
 conex=sqlite3.connect('db/Perseo.db')
 curshab=conex.cursor()
 
-
 def selecTH():
     sentencia=f"SELECT * FROM tb_tipoHabitacion"# WHERE {campo}{operador}'{dato}'"
     lista=curshab.execute(sentencia)
@@ -13,6 +12,7 @@ def selecTH():
         print(i[1] ,'', end='')
         print(i[2])
         print('_'*20)
+        
 
 
 def updateTH():
@@ -64,7 +64,16 @@ def insertTH():
     except sqlite3.IntegrityError:
         print('ERROR!! El ID que intenta ingresar ya existe')
         insertTH()
-    
+
+
+def id_tipoHab():
+    sentencia=f"SELECT * FROM tb_tipoHabitacion"# WHERE {campo}{operador}'{dato}'"
+    lista=curshab.execute(sentencia)
+    ite=lista.fetchall()
+    list_tipoHab=[]
+    for i in ite:
+        list_tipoHab.append(i[0])
+    return list_tipoHab
 #insertTH() 
 #deleteTH()
 #updateTH()
