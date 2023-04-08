@@ -3,8 +3,8 @@ path.append('../PerseoBackend/funciones')
 
 
 
-import modHab as h 
-import modTipoHab as th
+import crupHabitacion  as h 
+import crupTipoHabitacion as th
 
 
 #h.selecHab()

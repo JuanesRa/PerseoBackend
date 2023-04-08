@@ -54,7 +54,7 @@ def updatehab():
                         case '3':
                             from sys import path
                             path.append('../PerseoBackend/funciones')
-                            import modTipoHab as th
+                            import crupTipoHabitacion as th
                             list_tipoHa= th.id_tipoHab()
                             dato=int(input('Nuevo tipo de habitación: '))
                             if dato in list_tipoHa:
@@ -108,7 +108,7 @@ def inserthab():
     try:
         from sys import path
         path.append('../PerseoBackend/funciones')
-        import modTipoHab as th
+        import crupTipoHabitacion as th
         list_tipoHa= th.id_tipoHab()
         ids=int(input('Ingrese número de la habitación: '))
         dp=str(input('Escriba la descripción de la habitación: '))
@@ -239,5 +239,6 @@ def reporteHabit():
 #updatehab()
 #selecHab()
 #reporteHabit() 
+
 
 
