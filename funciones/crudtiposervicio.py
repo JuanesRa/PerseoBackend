@@ -2,7 +2,7 @@ import sqlite3
 con=sqlite3.connect("db/Perseo.db")
 micursor=con.cursor()
 
-"""def insertartipo():
+def insertartipo():
     tabla= 'tb_tipoServicio'
     tise_idTipoServicio=int(input('ingrese el id del tipo de servicio: '))
     tise_tipo=input('ingrese el tipo de servicio: ')
@@ -11,9 +11,9 @@ micursor=con.cursor()
     micursor.execute(sentencia)
     con.commit()
     print('Registro Creado!!!!')
-insertartipo()"""
 
-"""def eliminartipo():
+
+def eliminartipo():
     tabla ='tb_tipoServicio'
     campo = 'tise_idTipoServicio'
     dato = int(input('ingrese el id del tipo de servicio: '))
@@ -21,9 +21,9 @@ insertartipo()"""
     micursor.execute(sentencia)
     con.commit()
     print('Eliminación Exitosa!!!!')
-eliminartipo()"""
 
-"""def modificartipo():
+
+def modificartipo():
     tabla ='tb_tipoServicio'
     campo = input("ingrese el campo a modificar: ")
     dato = int(input("ingrese el dato: "))
@@ -32,9 +32,9 @@ eliminartipo()"""
     micursor.execute(sentencia)
     con.commit()
     print('Modificación Exitosa!!!!')
-modificartipo()"""
 
-"""def consultartipo():
+
+def consultartipo():
     tabla = 'tb_tipoServicio'
     campo = input("ingrese el campo a consultar: ")
     operador = input("ingrese el operador para realizar la consulta: ")
@@ -42,11 +42,11 @@ modificartipo()"""
     sentencia=f"SELECT * FROM {tabla} WHERE {campo}{operador}'{dato}'"
     lista=micursor.execute(sentencia)
     return lista.fetchall()
-print(consultartipo())"""
+    print(consultartipo())
 
-"""def consultartodotipo():
-    tabla = 'tb_tipoServicio'
-    sentencia=f"SELECT * FROM {tabla}"
-    lista=micursor.execute(sentencia)
-    return lista.fetchall()
-print(consultartodotipo())"""
+
+#insertartipo()
+#eliminartipo()
+#modificartipo()
+#consultartipo()
+

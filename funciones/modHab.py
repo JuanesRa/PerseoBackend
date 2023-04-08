@@ -18,8 +18,6 @@ def selecHab():
         print(i[3] ,'', end='')
         print(i[4])
         print('_'*90)
- 
-
     
 
 def updatehab():
@@ -75,6 +73,8 @@ def updatehab():
             
                             else:
                                 raise sqlite3.IntegrityError
+                        
+
                 else:
                     print('La habitación', num, 'no existe')
     except ValueError:
@@ -159,7 +159,7 @@ def reporteHabit():
                     import datetime as d
                     from sys import path
                     path.append('../PerseoBackend/clases')
-                    from Habitacion import  habitacion
+                    from habitacion import  habitacion
                     sentencia=f"SELECT H.habi_idHabitacion, H.habi_descripción, TH.tiha_tipo, TE.esha_estado FROM tb_habitacion H INNER JOIN tb_tipoHabitacion TH ON H.habi_idTipoHab = TH.tiha_idTipoHab INNER JOIN tb_estadoHabitacion TE ON H.habi_idEstadoHab = TE.esha_idEstadoHab"
                     lista=curshab.execute(sentencia)
                     ite=lista.fetchall()

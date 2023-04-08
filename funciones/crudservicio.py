@@ -2,7 +2,7 @@ import sqlite3
 con=sqlite3.connect("db/Perseo.db")
 micursor=con.cursor()
 
-"""def insertar():
+def insertar():
     tabla= 'tb_servicio'
     id_ser=int(input('ingrese el id del servicio: '))
     cant=int(input('ingrese la cantidad: '))
@@ -12,9 +12,9 @@ micursor=con.cursor()
     micursor.execute(sentencia)
     con.commit()
     print('Registro Creado!!!!')
-insertar()"""
 
-"""def eliminar():
+
+def eliminar():
     tabla ='tb_servicio'
     campo = 'serv_idServicio'
     dato = int(input('ingrese el id del servicio: '))
@@ -22,9 +22,9 @@ insertar()"""
     micursor.execute(sentencia)
     con.commit()
     print('Eliminación Exitosa!!!!')
-eliminar()"""
 
-"""def modificar():
+
+def modificar():
     tabla ='tb_servicio'
     campo = input("ingrese el campo a modificar: ")
     dato = int(input("ingrese el dato: "))
@@ -33,23 +33,12 @@ eliminar()"""
     micursor.execute(sentencia)
     con.commit()
     print('Modificación Exitosa!!!!')
-modificar()"""
 
-"""def consultar():
-    tabla = 'tb_servicio'
-    campo = input("ingrese el campo a consultar: ")
-    operador = input("ingrese el operador para realizar la consulta: ")
-    dato = int(input("ingrese el dato: "))
-    sentencia=f"SELECT * FROM {tabla} WHERE {campo}{operador}'{dato}'"
-    lista=micursor.execute(sentencia)
-    return lista.fetchall()
-print(consultar())"""
 
-"""def consultartodo():
+def consultartodo():
     tabla = 'tb_servicio'
     sentencia=f"SELECT * FROM {tabla}"
     lista=micursor.execute(sentencia)
     return lista.fetchall()
-print(consultartodo())"""
-
+    print(consultartodo())
 
