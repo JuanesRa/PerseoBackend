@@ -234,10 +234,10 @@ def reporteHabit():
                 print('Esta opción no existe\n')  
 
 
-#inserthab() 
-#deletehab()
-#updatehab()
-#selecHab()
-#reporteHabit() 
+inserthab() 
+deletehab()
+updatehab()
+selecHab()
+reporteHabit() 
 
 
