@@ -3,12 +3,16 @@ con=sqlite3.connect('db/Perseo.db')
 micursor=con.cursor()
 
 def seleccion(tabla, campo, operador,dato):
+    latabla= 'tb_reserva'
+    elcampo= 'rese_idReserva'
+    eloperador= '='
     sentencia=f"SELECT * FROM {tabla} WHERE {campo}{operador}'{dato}'"
     #print(sentencia)
     lista=micursor.execute(sentencia)
+    print('id reserva--', 'cantidad habitacion--','numero de personas-- ','fecha ingreso--', 'fecha salida-- ','id usuario--','--numero habitacion')
+    seleccion(latabla,elcampo,eloperador,'1')
     return lista.fetchall()
-print('id reserva--', 'cantidad habitacion--','numero de personas-- ','fecha ingreso--', 'fecha salida-- ','id usuario--','--numero habitacion')
-print(seleccion('tb_reserva','rese_idReserva','=','1'))
+print(seleccion())
 # en esta parte se pude consultar las reservas que ya esten realizadas 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -17,12 +21,14 @@ con=sqlite3.connect('db/Perseo.db')
 micursor=con.cursor()
 
 def eliminarre(tabla,campo,dato):
+    tbre= 'tb_reserva'
+    cam= 'rese_idReserva'
     sentencia=f"DELETE FROM {tabla} WHERE {campo}='{dato}'"
     micursor.execute(sentencia)
     con.commit()
     print('Eliminación Exitosa!!!!')
-
-eliminarre('tb_reserva','rese_idReserva',5)
+    eliminarre(tbre,cam,5)
+print(eliminarre())
 
 # en esta parte se elimina una reserva con el id de la reserva 
 #---------------------------------------------------------------------------------------------------------------------------------------------------------------
