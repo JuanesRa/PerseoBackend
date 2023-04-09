@@ -130,9 +130,7 @@ def reporteTipoServicio():
             case _:
                 print('Esta opción no existe\n')  
 
-reporteTipoServicio()
-
-
+#reporteTipoServicio()
 #insertartipo()
 #eliminartipo()
 #modificartipo()
