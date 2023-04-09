@@ -1,10 +1,25 @@
 class servicio:
-    def __init__ (self, serv_idServicio, serv_cantidad, serv_idTipoServicio, serv_idFactura):
-        self.__serv_idServicio=serv_idServicio
-        self.__serv_cantidad=serv_cantidad
-        self.__serv_idTipoServicio=serv_idTipoServicio
-        self.__serv_idFactura=serv_idFactura
+    def __init__ (self, idServicio,cantidad, idTipoServicio, idFactura):
+        self.serv_idServicio=idServicio
+        self.serv_cantidad=cantidad
+        self.serv_idTipoServicio=idTipoServicio
+        self.serv_idFactura=idFactura
 
-    def getDatosServicio(self):
-        return self.__serv_idServicio, self.__serv_cantidad, self.__serv_idTipoServicio, self.__serv_idFactura
-        
+    def getserv_idServicio(self):
+        return self.serv_idServicio
+    def setserv_idServicio(self,serv_idServicio):
+        self.serv_idServicio = idServicio
+    def getserv_cantidad(self):
+        return self.serv_cantidad
+    def setserv_cantidad(self,serv_cantidad):
+        self.serv_cantidad = cantidad
+    def getserv_idTipoServicio(self):
+        return self.serv_idTipoServicio
+    def setserv_idTipoServicio(self,serv_idTipoServicio):
+        self.serv_idTipoServicio = idTipoServicio
+    def getserv_idFactura(self):
+        return self.serv_idFactura
+    def setserv_idFactura(self,serv_idFactura):
+        self.serv_idFactura = idFactura
+
+     
