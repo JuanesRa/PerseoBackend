@@ -91,7 +91,94 @@ def idTipoUsuario():
     return list_idUsua
 
 
+def reporteTipoUsuario():
+    while True:
+        print('Reporte tipo de usuario:\n 1-Crear reporte\n 2-Ver reporte\n 3-Eliminar reporte')
+        ctrl=str(input('Seleccione una opción: '))
+        match ctrl:
+            case '0':
+                break
+            case '1':
+                try:
+                    import os
+                    import datetime as d
+                    from sys import path
+                    path.append('../PerseoBackend/Clases')
+                    from TipoUsuario import tipoUsuario
+                    sentencia=f"SELECT * FROM tb_tipoUsuario"
+                    lista=curstius.execute(sentencia)
+                    ite=lista.fetchall()
+                    #----------------------------------------------------
+                    instance_TipoUsua=[]
+                    TipoUsuarios=[]
+                    dia_presente= d.date.today()
+                    nombre_repor=str(input('Nombre del reporte a crear: '))
+                    nombre_com=f'{nombre_repor}{dia_presente}'
+                    if os.path.exists(f'reportes/{nombre_com}'):
+                        raise FileExistsError
+                    else:
+                        for i in ite:
+                            TipoUsuarios.append(i)
+                        
+                        for campo in TipoUsuarios:
+                            objUsua=tipoUsuario(campo[0],campo[1])
+                            instance_TipoUsua.append(objUsua)
+
+                        with open(f'reportes/{nombre_com}','a') as flujo: 
+                            for i in instance_TipoUsua:
+                                flujo.write (str(i.getIdTipo())+','+str(i.getTipo())+'\n')
+                        print('Creación de reporte exitosa!!')
+                        print('')
+                except FileExistsError:
+                    print('Error!! el reporte',nombre_com,'YA existe')
+                    print('')
+            case '2':
+                try:
+                    import os
+                    nombre_repor = str(input('Nombre del reporte que quiere ver: '))
+                    ruta_archivo = f'../PerseoBackend/reportes/{nombre_repor}'
+
+                    if os.path.exists(ruta_archivo):
+                        with open(f'reportes/{nombre_repor}', 'r') as flujo:
+                            lineas = flujo.readlines()
+                            for linea in lineas:
+                                campos = linea.strip().split(',')
+                                print(int(campos[0]),' ', end='')
+                                print(campos[1],' ', end='')
+                               
+                            print('')
+                    else:
+                        raise FileNotFoundError
+                        
+                except FileNotFoundError:
+                    print(f'El archivo {nombre_repor} no existe')
+                    print('')
+                
+            case '3':
+                try:
+                    import os
+
+                    nombre_repor = input('Nombre del reporte a eliminar: ')
+                    ruta_archivo = f'../PerseoBackend/reportes/{nombre_repor}'
+
+                    if os.path.exists(ruta_archivo):
+                        os.remove(ruta_archivo)
+                        print('Eliminación de reporte exitosa!!')
+                        print('')
+                    else:
+                        raise FileNotFoundError
+                        
+                except FileNotFoundError:
+                    print(f'El archivo {ruta_archivo} no existe')
+                    print('')
+
+                
+            case _:
+                print('Esta opción no existe\n')
+
+
 #createTipoUsuario()
 #readTipoUsuario()
 #updateTipoUsuario()
 #deleteTipoUsuario()
+#reporteTipoUsuario()

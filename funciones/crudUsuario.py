@@ -160,7 +160,95 @@ def idUsuario():
     return list_idUsua
 
 
+def reporteUsuario():
+    while True:
+        print('Reporte Usuario:\n 1-Crear reporte\n 2-Ver reporte\n 3-Eliminar reporte')
+        ctrl=str(input('Seleccione una opción: '))
+        match ctrl:
+            case '0':
+                break
+            case '1':
+                try:
+                    import os
+                    import datetime as d
+                    from sys import path
+                    path.append('../PerseoBackend/Clases')
+                    from Usuario import usuario
+                    sentencia=f"SELECT U.usua_idUsuario ,U.usua_nombre, U.usua_apellido, U.usua_email, U.usua_direccion, U.usua_telefono, U.usua_pass, TU.tius_tipo FROM tb_usuario U INNER JOIN tb_tipoUsuario TU ON U.usua_idTipoUsuario = TU.tius_idTipo"
+                    lista=cursusua.execute(sentencia)
+                    ite=lista.fetchall()
+                    #----------------------------------------------------
+                    instance_Usua=[]
+                    usuarios=[]
+                    dia_presente= d.date.today()
+                    nombre_repor=str(input('Nombre del reporte a crear: '))
+                    nombre_com=f'{nombre_repor}{dia_presente}'
+                    if os.path.exists(f'reportes/{nombre_com}'):
+                        raise FileExistsError
+                    else:
+                        for i in ite:
+                            usuarios.append(i)
+                        
+                        for campo in usuarios:
+                            objUsua=usuario(campo[0],campo[1],campo[2],campo[3],campo[4],campo[5],campo[6],campo[7])
+                            instance_Usua.append(objUsua)
+
+                        with open(f'reportes/{nombre_com}','a') as flujo: 
+                            for i in instance_Usua:
+                                flujo.write (str(i.getId())+','+str(i.getNombre())+','+str(i.getApellido())+','+str(i.getEmail())+','+str(i.getTelefono())+','+str(i.getDireccion())+','+str(i.getPassword())+','+str(i.getTipoUsuario())+'\n')
+                        print('Creación de reporte exitosa!!')
+                        print('')
+                except FileExistsError:
+                    print('Error!! el reporte',nombre_com,'YA existe')
+                    print('')
+            case '2':
+                try:
+                    import os
+                    nombre_repor = str(input('Nombre del reporte que quiere ver: '))
+                    ruta_archivo = f'../PerseoBackend/reportes/{nombre_repor}'
+
+                    if os.path.exists(ruta_archivo):
+                        with open(f'reportes/{nombre_repor}', 'r') as flujo:
+                            lineas = flujo.readlines()
+                            for linea in lineas:
+                                campos = linea.strip().split(',')
+                                print(int(campos[0]),' ', end='')
+                                print(campos[1],' ', end='')
+                                print(str(campos[2]),' ', end='')
+                                print(str(campos[3]))
+                               
+                            print('')
+                    else:
+                        raise FileNotFoundError
+                        
+                except FileNotFoundError:
+                    print(f'El archivo {nombre_repor} no existe')
+                    print('')
+                
+            case '3':
+                try:
+                    import os
+
+                    nombre_repor = input('Nombre del reporte a eliminar: ')
+                    ruta_archivo = f'../PerseoBackend/reportes/{nombre_repor}'
+
+                    if os.path.exists(ruta_archivo):
+                        os.remove(ruta_archivo)
+                        print('Eliminación de reporte exitosa!!')
+                        print('')
+                    else:
+                        raise FileNotFoundError
+                        
+                except FileNotFoundError:
+                    print(f'El archivo {ruta_archivo} no existe')
+                    print('')
+
+                
+            case _:
+                print('Esta opción no existe\n')   
+
 #createUsuario()
 #readUsuario()
 #updateUsuario()
 #deleteUsuario()
+#reporteUsuario()
