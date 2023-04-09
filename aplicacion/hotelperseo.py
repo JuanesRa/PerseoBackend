@@ -5,6 +5,8 @@ path.append('../PerseoBackend/funciones')
 
 import modHab as h 
 import modTipoHab as th
+import crudservicio as s
+import crudtiposervicio as ts
 
 
 #h.selecHab()
@@ -29,7 +31,7 @@ def hotelperseo():
                             break
                         case '1':
                             while True: 
-                                print('Consultar:\n 1-Habitación\n 2-Tipo de Habitación ')
+                                print('Consultar:\n 1-Habitación\n 2-Tipo de Habitación\n 3-Servicios\n 4-Tipo Servicios')
                                 ctrl=str(input('Que quieres consultar: '))
                                 print()
                                 match ctrl:
@@ -40,6 +42,12 @@ def hotelperseo():
                                         print()
                                     case '2':
                                         th.selecTH()
+                                        print()
+                                    case '3':
+                                        s.consultartodo()
+                                        print()
+                                    case '4':
+                                        ts.consultartipo()
                                         print()
                                     case _ :
                                         print('Esta opción no existe')

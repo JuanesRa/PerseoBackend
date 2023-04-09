@@ -18,8 +18,6 @@ def selecHab():
         print(i[3] ,'', end='')
         print(i[4])
         print('_'*90)
- 
-
     
 
 def updatehab():
@@ -75,6 +73,8 @@ def updatehab():
             
                             else:
                                 raise sqlite3.IntegrityError
+                        
+
                 else:
                     print('La habitación', num, 'no existe')
     except ValueError:
