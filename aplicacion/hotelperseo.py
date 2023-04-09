@@ -1,12 +1,13 @@
 from sys import path
 path.append('../PerseoBackend/funciones')
 
-import modHab as h
+
+import crudHabitacion  as h 
 import crudTipoUsuario as tu
 import crudUsuario as u
 import crudtiposervicio as ts
 import crudservicio as s
-import modTipoHab as th
+import crudTipoHabitacion as th
 
 
 def hotelperseo():

@@ -209,4 +209,4 @@ def reporteTipoHab():
 #deleteTH()
 #updateTH()
 #selecTH()
-#reporteTipoHab()
+#  reporteTipoHab()
