@@ -58,10 +58,10 @@ def menu():
                                     ts.consultartipo()
                                     print()
                                 case '7':
-                                    #Funcion de David
+                                    r.seleccion()
                                     print()
                                 case '8':
-                                    #Funcion de David
+                                    eh.menuEstadoHab()
                                     print()
                                 case _:
                                     print('Esta opción no existe')
@@ -93,10 +93,10 @@ def menu():
                                     ts.insertartipo()
                                     print()
                                 case '7':
-                                    #Funcion David
+                                    r.insertarre()
                                     print()
                                 case '8':
-                                    #Funcion David
+                                    eh.menuEstadoHab()
                                     print()
                                 case _:
                                     print('Esta opción no existe')
@@ -127,10 +127,10 @@ def menu():
                                     ts.eliminartipo()
                                     print()
                                 case '7':
-                                    #Funcion David
+                                    r.eliminarre()
                                     print()
                                 case '8':
-                                    #Funcion David
+                                    eh.menuEstadoHab()
                                     print()
                                 case _:
                                     print('Esta opción no existe')
@@ -162,10 +162,10 @@ def menu():
                                     ts.modificartipo()
                                     print()
                                 case '7':
-                                    #Funcion David
+                                    r.modificarre()
                                     print()
                                 case '8':
-                                    #Funcion David
+                                    eh.menuEstadoHab()
                                     print()
                                 case _:
                                     print('Esta opción no existe')
@@ -199,7 +199,7 @@ def menu():
                                     #Funcion David
                                     print()
                                 case '8':
-                                    #Funcion David
+                                    eh.reporteEstadoHab()
                                     print()
                                 case _:
                                     print('Esta opción no existe')
